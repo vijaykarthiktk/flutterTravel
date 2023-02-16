@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       SizedBox(width: 20,),
                       Icon(Icons.location_on),
-                      SizedBox(width: 20,),
+                      SizedBox(width: 20),
                       Expanded(
                         child: DropdownButton(
                           isExpanded: true,
