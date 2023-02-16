@@ -114,86 +114,71 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          child: Image.network("https://picsum.photos/200",fit: BoxFit.fill,),
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 15, top: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Design Hotel Madrid",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
-                              RatingBarIndicator(
-                                rating: 3,
-                                itemBuilder: (context, index) => Icon(
-                                  Icons.star,
-                                  color: Colors.grey,
-                                ),
-                                itemCount: 5,
-                                itemSize: 15,
-                                direction: Axis.horizontal,
-                              ),
-                              SizedBox(height: 10,),
-                              Row(
-                                children: [
-                                  Text("From "),
-                                  Text(r"$99",style: TextStyle(fontSize: 17, color: Colors.orange, fontWeight: FontWeight.bold),)
-                                ],
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          child: Image.network("https://picsum.photos/200",fit: BoxFit.fill,),
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 15, top: 15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Design Hotel Madrid",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
-                              RatingBarIndicator(
-                                rating: 3,
-                                itemBuilder: (context, index) => Icon(
-                                  Icons.star,
-                                  color: Colors.grey,
-                                ),
-                                itemCount: 5,
-                                itemSize: 15,
-                                direction: Axis.horizontal,
-                              ),
-                              SizedBox(height: 10,),
-                              Row(
-                                children: [
-                                  Text("From "),
-                                  Text(r"$99",style: TextStyle(fontSize: 17, color: Colors.orange, fontWeight: FontWeight.bold),)
-                                ],
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  )
+                  SuggestedCardView(name: "Design Hotel Madrid",id: "200", initRating: 4, price: 89),
+                  SuggestedCardView(name: "Trump Hotel",id: "201", initRating: 2, price: 99.9),
 
                 ],
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class SuggestedCardView extends StatelessWidget {
+  String id;
+  double initRating;
+  String name;
+  double price;
+
+  SuggestedCardView({
+    required this.id,
+    required this.name,
+    required this.initRating,
+    required this.price,
+    super.key,
+  });
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            child: Image.network("https://picsum.photos/$id",fit: BoxFit.fill,),
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 15, top: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("$name",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
+                RatingBarIndicator(
+                  rating: initRating,
+                  itemBuilder: (context, index) => Icon(
+                    Icons.star,
+                    color: Colors.grey,
+                  ),
+                  itemCount: 5,
+                  itemSize: 15,
+                  direction: Axis.horizontal,
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    Text("From "),
+                    Text('$price',style: TextStyle(fontSize: 17, color: Colors.orange, fontWeight: FontWeight.bold),)
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
