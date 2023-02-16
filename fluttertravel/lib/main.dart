@@ -132,11 +132,20 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: Drawer(
         child: Column(
-          children: const [
+          children: [
             UserAccountsDrawerHeader(
               accountName: Text("Vijaykarthik", ),
               accountEmail: Text("vijaykarthiktk@gmail.com"),
               currentAccountPicture: CircleAvatar(child: Text("V",style: TextStyle(fontSize: 40),),),
+            ),
+            Column(
+              children: [
+                ListTile(
+                  leading: Icon(Icons.my_location),
+                  title: Text("Paris, France"),
+                  subtitle: Text("Current Location"),
+                )
+              ],
             )
           ],
         ),
