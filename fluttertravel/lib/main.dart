@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Row(
                     children: [
-                      SizedBox(width: 20,),
+                      SizedBox(width: 20),
                       Icon(Icons.date_range),
                       SizedBox(width: 20,),
                       Expanded(
