@@ -123,6 +123,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+                accountName: Text("Vijaykarthik "),
+                accountEmail: Text("vijaykarthiktk@gmail.com")
+            )
+          ],
+        ),
+      ),
     );
   }
 }
