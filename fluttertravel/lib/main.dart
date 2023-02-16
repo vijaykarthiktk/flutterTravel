@@ -123,7 +123,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   SuggestedCardView(name: "Design Hotel Madrid",id: "200", initRating: 4, price: 89),
                   SuggestedCardView(name: "Trump Hotel",id: "201", initRating: 2, price: 99.9),
-                  SuggestedCardView(name: "Paris Hotel",id: "301", initRating: 4, price: 99.9),
                 ],
               ),
             )
@@ -138,14 +137,43 @@ class _MyHomePageState extends State<MyHomePage> {
               accountEmail: Text("vijaykarthiktk@gmail.com"),
               currentAccountPicture: CircleAvatar(child: Text("V",style: TextStyle(fontSize: 40),),),
             ),
-            Column(
+            Expanded(child: Column(
               children: [
                 ListTile(
-                  leading: Icon(Icons.my_location),
+                  leading: Container(
+                      child:Icon(Icons.my_location)
+                  ),
                   title: Text("Paris, France"),
                   subtitle: Text("Current Location"),
+                ),
+                Divider(),
+                ListTile(
+                  leading: Icon(Icons.home),
+                  title: Text("Discover"),
+                ),
+                ListTile(
+                  leading: Icon(Icons.hotel),
+                  title: Text("Hotel"),
+                ),
+                ListTile(
+                  leading: Icon(Icons.airplane_ticket),
+                  title: Text("Ticket"),
+                ),
+                ListTile(
+                  leading: Icon(Icons.translate),
+                  title: Text("Transaltor"),
+                ),
+                ListTile(
+                  leading: Icon(Icons.bookmark),
+                  title: Text("Saved"),
+                ),
+                Spacer(),
+                Divider(),
+                ListTile(
+                  title: Text("Settings"),
                 )
               ],
+            )
             )
           ],
         ),
