@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertravel/widget/suggest_hotel_cardview.dart';
+import 'package:system_theme/system_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  SystemTheme.accentColor;
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final accentColor = SystemTheme.accentColor.accent;
+
+  MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Travel',
       themeMode: ThemeMode.system,
       theme: ThemeData(
+        colorSchemeSeed: accentColor,
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
+          colorSchemeSeed: accentColor,
+          brightness: Brightness.dark,
         useMaterial3: true
       ),
       home: MyHomePage(),
@@ -127,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: const [
             UserAccountsDrawerHeader(
-              accountName: Text("Vijaykarthik "),
+              accountName: Text("Vijaykarthik", ),
               accountEmail: Text("vijaykarthiktk@gmail.com"),
               currentAccountPicture: CircleAvatar(child: Text("V",style: TextStyle(fontSize: 40),),),
             )
