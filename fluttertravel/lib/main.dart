@@ -10,17 +10,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Travel',
+      themeMode: ThemeMode.system,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Travel'),
+      darkTheme: ThemeData(
+        useMaterial3: true
+      ),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -36,8 +38,29 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Card(
+              elevation: 4,
+              child:Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 10,top: 10),
+                    child: Text("Destination"),
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.location_on),
+                      DropdownButton(
+                          items: [
+                            DropdownMenuItem(child: Text("Madrid")),],
+                          onChanged: (changed){}),
+                    ],
+                  )
+                ],
+              ),
+            )
 
           ],
         ),
