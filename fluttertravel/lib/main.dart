@@ -116,6 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   SuggestedCardView(name: "Design Hotel Madrid",id: "200", initRating: 4, price: 89),
                   SuggestedCardView(name: "Trump Hotel",id: "201", initRating: 2, price: 99.9),
+                  SuggestedCardView(name: "Paris Hotel",id: "301", initRating: 4, price: 99.9),
                 ],
               ),
             )
